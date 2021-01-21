@@ -1,5 +1,5 @@
 {
-    "name": "HassOS restic add-on",
-    "url": "https://github.com/martenjacobs/hassio-restic",
-    "maintainer": "Marten Jacobs <mail@vanmarten.nl>"
+    "name": "AP HassOS add-ons",
+    "url": "https://github.com/aplsms/hassio-restic",
+    "maintainer": "Andrii Petrenko <aplsms@gmail.com>"
 }

@@ -1,6 +1,6 @@
 {
     "name": "Restic",
-    "version": "0.4",
+    "version": "0.6.12",
     "slug": "restic",
     "description": "Create back-ups using restic",
     "arch": [
@@ -13,22 +13,38 @@
     "startup": "once",
     "boot": "manual",
     "map": [
-        "config",
-        "ssl",
-        "addons",
-        "backup",
-        "share",
-        "media"
+        "config:ro",
+        "ssl:ro",
+        "addons:ro",
+        "backup:ro",
+        "share:ro",
+        "media:ro"
     ],
     "options": {
-        "env_vars": {},
-        "exclude_patterns":[
+        "env_vars": {
+            "AWS_ACCESS_KEY_ID": "access_key_id",
+            "AWS_SECRET_ACCESS_KEY": "secret",
+            "RESTIC_REPOSITORY": "s3:minio.host/backup/hassio",
+            "RESTIC_PASSWORD": "password"
+        },
+        "exclude_patterns": [
             "homeassistant/home-assistant.log",
             "homeassistant/home-assistant_v2.db",
             "addons/data/a0d7b954_influxdb/influxdb/wal",
             "addons/data/52a4f95e_restic/restic-cache"
         ]
     },
-    "schema":false,
-    "full_access":true
+    "schema": {
+        "env_vars": {
+            "AWS_ACCESS_KEY_ID": "str?",
+            "AWS_SECRET_ACCESS_KEY": "str?",
+            "RESTIC_REPOSITORY": "str?",
+            "RESTIC_PASSWORD": "str?"
+        },
+        "exclude_patterns": [
+            "str?"
+        ]
+    },
+    "full_access": true,
+    "init": false
 }
